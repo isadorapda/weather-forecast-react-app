@@ -67,7 +67,7 @@ const customStyles: StylesConfig<Option> = {
 }
 
 export const InputSelectContainer: React.FC = () => {
-  const { setSearchPlace } = useContext(WeatherContext)
+  const { setSearchPlace, searchPlace } = useContext(WeatherContext)
 
   return (
     <SelectContainer>
@@ -75,10 +75,10 @@ export const InputSelectContainer: React.FC = () => {
         options={PLACES}
         styles={customStyles}
         isMulti={false}
+        value={PLACES.find((place) => place.value === searchPlace)}
         onChange={(newPlace) => {
-          newPlace ? setSearchPlace(newPlace!.value) : ''
+          newPlace ? setSearchPlace(newPlace.value) : ''
         }}
-        placeholder="Select city"
         isClearable
       />
     </SelectContainer>
