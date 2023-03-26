@@ -55,12 +55,18 @@ export const Search: React.FC = () => {
     const params = new URLSearchParams(url.search)
     params.set('latitude', `${foundPlace.latitude}`)
     params.set('longitude', `${foundPlace.longitude}`)
-    if (selectedFiltersDaily) {
-      params.set('daily', 'weathercode,' + selectedFiltersDaily)
-    }
-    if (selectedFiltersHourly) {
-      params.set('hourly', 'weathercode,' + selectedFiltersHourly)
-    }
+    params.set(
+      'daily',
+      `weathercode,temperature_2m_min,temperature_2m_max${
+        selectedFiltersDaily ? ',' + selectedFiltersDaily : ''
+      }`
+    )
+    params.set(
+      'hourly',
+      `weathercode,temperature_2m${
+        selectedFiltersHourly ? ',' + selectedFiltersHourly : ''
+      }`
+    )
     params.set('current_weather', 'true')
     if (temperatureUnit === 'fahrenheit') {
       params.set('temperature_unit', 'fahrenheit')

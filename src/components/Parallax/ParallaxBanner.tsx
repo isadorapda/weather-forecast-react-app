@@ -1,13 +1,26 @@
 import React from 'react'
 import { ParallaxBanner } from 'react-scroll-parallax'
 
-import Sky from '../../assets/bgImg.jpg'
+import SkyBottom from '../../assets/bottomBg.png'
+import SkyTop from '../../assets/topBg.png'
 
 export const BgBanner: React.FC = () => {
   return (
-    <ParallaxBanner
-      layers={[{ image: `${Sky}`, speed: -20 }]}
-      style={{ height: '200vh', width: '100vw', objectFit: 'cover' }}
-    />
+    <>
+      <ParallaxBanner
+        layers={[{ image: `${SkyTop}`, speed: -10 }]}
+        style={{
+          height: '100vh',
+          width: '100vw',
+        }}
+      />
+      {/* <ParallaxBanner
+        layers={[{ image: `${SkyBottom}`, speed: 10 }]}
+        style={{
+          height: '100vh',
+          width: '100vw',
+        }}
+      /> */}
+    </>
   )
 }

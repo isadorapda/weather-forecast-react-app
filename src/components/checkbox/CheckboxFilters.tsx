@@ -60,6 +60,7 @@ export const CheckboxFilters: React.FC<Props> = ({
                 type="radio"
                 name="temperature-units"
                 id={unit.label}
+                defaultChecked={unit.defaultChecked}
                 onClick={() => setTemperatureUnit(unit.value)}
               />
               <LabelInputCheckbox htmlFor={unit.label} title={unit.value}>

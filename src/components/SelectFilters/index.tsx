@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Select, { StylesConfig } from 'react-select'
 
 import { FILTERS_DAILY, FILTERS_HOURLY } from '../../constants/searchFilters'
+import { typoSize } from '../SelectPlace'
 
 type Option = {
   value: string
@@ -39,12 +40,22 @@ const customStyles: StylesConfig<Option> = {
     backdropFilter: 'saturate(180%) blur(5px)',
     WebkitBackdropFilter: ' blur(5px)',
     border: '1px solid rgba(255, 255, 255, 0.3)',
-    fontSize: '1rem',
+    fontSize: '3vw',
+    color: 'white',
   }),
   multiValue: (provided) => ({
     ...provided,
     backgroundColor: ' rgba(255, 255, 255, 0.6)',
     fontSize: '1rem',
+    borderRadius: '6px',
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: 'white',
+    fontSize: `${typoSize()}`,
+  }),
+  option: (provided) => ({
+    ...provided,
     borderRadius: '6px',
   }),
 }

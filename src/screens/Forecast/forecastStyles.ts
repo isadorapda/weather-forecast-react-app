@@ -2,18 +2,24 @@ import styled from 'styled-components'
 
 export const CentralGrid = styled.section`
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 45% 60%;
   width: 100%;
-  min-height: 100vh;
-  margin-top: 90px;
+  padding: 0 3vw;
+  margin: 0 auto;
+  gap: 5vh 0;
   inset: 1;
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
+  justify-items: center;
+  justify-content: center;
+  @media screen and (max-width: 1023px) {
     grid-template-columns: 50% 50%;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 430px) {
+    width: 100%;
+    padding: 0 3vw;
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    align-items: center;
+    gap: 4vh;
   }
 `
 export const Local = styled.div`
@@ -21,40 +27,22 @@ export const Local = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 50px;
   h1 {
-    font-size: 3.2rem;
+    font-size: 5vw;
   }
   h2 {
-    font-size: 2rem;
+    font-size: 3vw;
   }
 
-  @media screen and (min-width: 1023px) and (max-width: 1280px) {
-    h1 {
-      font-size: 2.6rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-    }
-  }
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
-    padding-left: 20px;
-    height: 160px;
+  @media screen and (max-width: 1023px) {
     justify-content: center;
-    h1 {
-      font-size: 2.4rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-    }
   }
-  @media screen and (max-width: 767px) {
-    padding-left: 0;
+  @media screen and (max-width: 430px) {
     h1 {
-      font-size: 1.7rem;
+      font-size: 7vw;
     }
     h2 {
-      font-size: 1.2rem;
+      font-size: 5vw;
     }
   }
 `

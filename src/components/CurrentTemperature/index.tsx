@@ -48,10 +48,11 @@ export const CurrentTemperature: React.FC<Props> = ({
 
   const hourlyWeatherCodes = weather.hourlyINFO?.weathercode
   const currentTemperature = weather.current_weather.temperature
+  const temperatureUnit = hourlyUnit || dailyUnit
 
   React.useEffect(() => {
     document.title = weather.placeName
-      ? `${weather.placeName} ${currentTemperature}${dailyUnit} - ${weatherIcon?.label}`
+      ? `${weather.placeName} ${currentTemperature}${temperatureUnit} - ${weatherIcon?.label}`
       : 'Weather Forecast'
   }, [weather.placeName, currentTemperature])
 
@@ -87,7 +88,6 @@ export const CurrentTemperature: React.FC<Props> = ({
     }
   }
   const weatherIcon = showCurrentWeatherIcon()
-
   return (
     <CurrentTemperatureContainer>
       {weatherIcon ? (
@@ -98,24 +98,18 @@ export const CurrentTemperature: React.FC<Props> = ({
       ) : null}
 
       <Temperature>
-        {currentTemperature ? (
-          <h1>{`${currentTemperature}${
-            hourlyUnit ? hourlyUnit : dailyUnit
-          }`}</h1>
+        {currentTemperature && temperatureUnit ? (
+          <h1>{`${currentTemperature}${temperatureUnit}`}</h1>
         ) : null}
         <MaxMinTemperatureContainer>
           <span title="Lowest Temperature">
-            {dailyMinTemperatures
-              ? `L:${dailyMinTemperatures[0]}${
-                  hourlyUnit ? hourlyUnit : dailyUnit
-                }`
+            {dailyMinTemperatures && temperatureUnit
+              ? `L:${dailyMinTemperatures[0]}${temperatureUnit}`
               : null}
           </span>
           <span title="Highest Temperature">
-            {dailyMaxTemperatures
-              ? `H:${dailyMaxTemperatures[0]}${
-                  hourlyUnit ? hourlyUnit : dailyUnit
-                }`
+            {dailyMaxTemperatures && temperatureUnit
+              ? `H:${dailyMaxTemperatures[0]}${temperatureUnit}`
               : null}
           </span>
         </MaxMinTemperatureContainer>

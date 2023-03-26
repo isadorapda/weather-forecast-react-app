@@ -5,21 +5,13 @@ export const TodaysForecastContainer = styled.div`
   grid-row: 1/3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  margin-left: 120px;
-  width: 80%;
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
+  width: 90%;
+  @media screen and (max-width: 1023px) {
     grid-column: 1/-1;
     grid-row: 2;
-    margin-left: 0;
-    margin-top: 10px;
-    width: 100%;
-  }
-  @media screen and (max-width: 767px) {
-    margin-left: 0;
-    width: 100%;
-    height: max-content;
+    width: 90%;
   }
 `
 const Appear = keyframes`
@@ -40,15 +32,12 @@ export const TodaysForecastDailyGrid = styled.div`
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 20%;
-  gap: 0 20px;
-
+  column-gap: 2vw;
   article {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60%;
     opacity: 1;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -57,112 +46,93 @@ export const TodaysForecastDailyGrid = styled.div`
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     animation: ${Appear} 0.5s ease;
+    padding: 1vh 0;
     small {
-      font-size: 1.1rem;
+      font-size: 1vw;
     }
   }
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
-    height: 10%;
+  @media screen and (max-width: 1023px) {
+    grid-template-columns: repeat(4, minmax(2vw, 1fr));
     article {
-      height: 100%;
+      gap: 1vh;
       small {
-        font-size: 1rem;
+        font-size: 1.2vw;
       }
     }
   }
-  @media screen and (max-width: 767px) {
-    min-height: 70px;
-
-    gap: 0 8px;
+  @media screen and (max-width: 430px) {
+    gap: 0.5vh;
     article {
       border-radius: 10px;
-      font-size: 1rem;
+
       small {
-        font-size: 0.8rem;
-        padding-top: 3px;
+        font-size: 2.5vw;
       }
     }
   }
 `
 export const HourlyTemperatureGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(5vw, 1fr));
   justify-items: center;
   align-content: center;
   align-items: center;
-  column-gap: 40px;
+  column-gap: 1vw;
   width: 100%;
-  height: 30%;
   overflow-x: scroll;
-  margin-bottom: 20px;
+  padding: 3vh 0;
   article {
     grid-row: 1;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1vw;
   }
   img {
     grid-row: 2;
     width: 45px;
     height: 45px;
-    margin: 5px 0;
+    margin: 1vh 0;
   }
   span {
     grid-row: 3;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.1vw;
   }
-  @media screen and (min-width: 1023px) and (max-width: 1280px) {
-    column-gap: 30px;
+
+  @media screen and (max-width: 1024px) {
+    column-gap: 3vw;
     article {
-      font-size: 1rem;
+      font-size: 1.5vw;
     }
     img {
       width: 40px;
       height: 40px;
     }
     span {
-      font-size: 1rem;
+      font-size: 1.5vw;
     }
   }
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
-    height: 160px;
-    padding: 10px 0;
-    column-gap: 30px;
+  @media screen and (max-width: 430px) {
+    column-gap: 3vw;
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
     article {
-      font-size: 1rem;
+      font-size: 3vw;
     }
     img {
-      width: 40px;
-      height: 40px;
+      width: 20px;
+      height: 20px;
+      margin: 0.5vh 0;
     }
     span {
-      font-size: 0.8rem;
-    }
-  }
-  @media screen and (max-width: 767px) {
-    column-gap: 9px;
-    padding: 0 0 15px 0;
-    article {
-      font-size: 0.7rem;
-    }
-    img {
-      width: 30px;
-      height: 30px;
-    }
-    span {
-      font-size: 0.7rem;
-      width: 40px;
+      font-size: 2.5vw;
     }
   }
 `
 export const HourlyForecastGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(10%, 1fr));
-  grid-auto-rows: minmax(30%, 1fr);
+  grid-template-columns: repeat(3, minmax(6vw, 1fr));
   text-align: center;
   width: 100%;
-  gap: 10px 20px;
-
+  gap: 1.2vh 2vw;
   article {
     text-align: left;
     padding: 10px;
@@ -173,37 +143,40 @@ export const HourlyForecastGrid = styled.div`
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     h4 {
-      color: gray;
+      color: black;
       display: flex;
       align-items: center;
-      font-size: 1rem;
-      gap: 9px;
+      font-size: 1vw;
+      gap: 1vw;
+      margin-bottom: 1vh;
     }
     p {
-      margin-top: 5%;
-      font-size: 1.1rem;
+      font-size: 1.1vw;
     }
   }
 
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
-    grid-template-columns: repeat(2, minmax(10%, 1fr));
-    grid-auto-rows: minmax(10%, 1fr);
-    h4 {
-      font-size: 0.9rem;
-    }
-  }
-  @media screen and (max-width: 767px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 90px);
-    gap: 10px;
-    margin-top: 5px;
+  @media screen and (max-width: 1023px) {
+    grid-template-columns: repeat(2, minmax(5vw, 1fr));
+    grid-auto-rows: minmax(4vh, 1fr);
     article {
       h4 {
-        font-size: 0.7rem;
+        font-size: 1.5vw;
       }
       p {
-        margin-top: 0;
-        font-size: 0.7rem;
+        font-size: 1.5vw;
+      }
+    }
+  }
+  @media screen and (max-width: 430px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    article {
+      h4 {
+        font-size: 2.5vw;
+      }
+      p {
+        font-size: 2vw;
       }
     }
   }
