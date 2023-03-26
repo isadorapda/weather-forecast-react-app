@@ -2,22 +2,22 @@ import styled from 'styled-components'
 
 export const DailyForecastContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(7vw, 1fr));
   grid-column: 1/-1;
-  gap: 10px;
-  height: 60%;
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
-    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
-    grid-auto-rows: 110px;
-    margin-top: 30px;
+  gap: 1.5vw;
+  width: 90%;
+
+  @media screen and (max-width: 1023px) {
     grid-column: 1/-1;
-    height: max-content;
+    gap: 1vw;
+    padding: 0;
   }
   @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    gap: 2vh;
+    padding: 0 0;
   }
 `
 export const WeekDayItem = styled.article`
@@ -26,50 +26,48 @@ export const WeekDayItem = styled.article`
   align-items: center;
   justify-content: center;
   border-radius: 20px;
+  padding: 1vh 1vw;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: saturate(200%) blur(6px);
   -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 1.2rem;
+  font-size: 1.5vw;
   img {
-    padding: 6px 0;
+    padding: 1vh 0;
     height: 50px;
     width: 50px;
   }
-  @media screen and (min-width: 1023px) and (max-width: 1280px) {
-    font-size: 1rem;
-  }
-  @media screen and (min-width: 767px) and (max-width: 1023px) {
-    font-size: 0.8rem;
+
+  @media screen and (max-width: 1023px) {
     img {
-      padding: 0 0 6px 0;
+      padding: 0 0 1vh 0;
       height: 40px;
       width: 40px;
     }
   }
   @media screen and (max-width: 767px) {
+    font-size: 2.5vw;
     flex-direction: row;
-    justify-content: flex-start;
-    padding: 10px 20px;
-    font-size: 0.8rem;
-    position: relative;
+    justify-content: space-between;
+    padding: 1vh 6vw;
     border-radius: 16px;
     img {
-      position: absolute;
-      top: 0;
-      left: 120px;
+      height: 30px;
+      width: 30px;
+      padding: 0;
     }
   }
 `
 export const MaxMinContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 1.5vw;
+  p {
+    font-size: 1vw;
+  }
   @media screen and (max-width: 767px) {
-    position: absolute;
-    right: 20px;
     p {
-      font-size: 0.8rem;
+      font-size: 2vw;
     }
   }
 `

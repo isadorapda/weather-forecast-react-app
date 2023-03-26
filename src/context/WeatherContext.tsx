@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { PLACES } from '../constants/places'
 
 import { WEATHER_INFOS } from '../constants/weatherInfos'
 import { Forecast } from '../types/models'
@@ -22,7 +23,7 @@ export function WeatherContextProvider({
   children,
 }: WeatherContextProviderProps) {
   const [weather, setWeather] = React.useState<Forecast>(WEATHER_INFOS)
-  const [searchPlace, setSearchPlace] = React.useState<string>('')
+  const [searchPlace, setSearchPlace] = React.useState<string>(PLACES[0].value)
 
   const dailyMaxTemperatures = weather.dailyINFO?.temperature_2m_max
   const dailyMinTemperatures = weather.dailyINFO?.temperature_2m_min

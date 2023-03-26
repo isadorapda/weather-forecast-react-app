@@ -2,15 +2,6 @@ import { Options } from '../components/SelectFilters'
 
 export const FILTERS_DAILY: Options = [
   {
-    value: 'temperature_2m_min',
-    label: 'Lowest Temperature',
-  },
-  {
-    value: 'temperature_2m_max',
-    label: 'Highest Temperature',
-  },
-
-  {
     value: 'sunrise',
     label: 'Sunrise',
   },
@@ -28,10 +19,6 @@ export const FILTERS_DAILY: Options = [
   },
 ]
 export const FILTERS_HOURLY: Options = [
-  {
-    value: 'temperature_2m',
-    label: 'Temperature',
-  },
   {
     value: 'apparent_temperature',
     label: 'Apparent Temperature',
@@ -61,6 +48,7 @@ export const FILTERS_TEMPERATURE_UNITS = [
   {
     value: 'celcius',
     label: '°C',
+    defaultChecked: true,
   },
   {
     value: 'fahrenheit',

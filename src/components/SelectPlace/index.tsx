@@ -17,6 +17,18 @@ type Option = {
 }
 
 export type Options = Array<Option>
+const mobileBreakpoint = 430
+const laptopBreakpoint = 1024
+const width = window.innerWidth
+export const typoSize = () => {
+  if (width <= mobileBreakpoint) {
+    return '3.5vw'
+  } else if (width > mobileBreakpoint && width <= laptopBreakpoint) {
+    return '2vw'
+  } else {
+    return '1vw'
+  }
+}
 
 const customStyles: StylesConfig<Option> = {
   menu: (provided) => ({
@@ -26,7 +38,12 @@ const customStyles: StylesConfig<Option> = {
     backdropFilter: 'saturate(180%) blur(5px)',
     WebkitBackdropFilter: ' blur(5px)',
     border: '1px solid rgba(255, 255, 255, 0.3)',
-    fontSize: '1.3rem',
+    fontSize: `${typoSize()}`,
+    color: 'black',
+  }),
+  option: (provided) => ({
+    ...provided,
+    borderRadius: '6px',
   }),
   container: (provided) => ({
     ...provided,
@@ -41,13 +58,16 @@ const customStyles: StylesConfig<Option> = {
     backdropFilter: 'saturate(180%) blur(5px)',
     WebkitBackdropFilter: ' blur(5px)',
     border: '1px solid rgba(255, 255, 255, 0.3)',
-    fontSize: '1.3rem',
-    padding: '4px 5px',
+    fontSize: `${typoSize()}`,
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: 'white',
   }),
 }
 
 export const InputSelectContainer: React.FC = () => {
-  const { setSearchPlace } = useContext(WeatherContext)
+  const { setSearchPlace, searchPlace } = useContext(WeatherContext)
 
   return (
     <SelectContainer>
@@ -55,10 +75,10 @@ export const InputSelectContainer: React.FC = () => {
         options={PLACES}
         styles={customStyles}
         isMulti={false}
+        value={PLACES.find((place) => place.value === searchPlace)}
         onChange={(newPlace) => {
-          newPlace ? setSearchPlace(newPlace!.value) : ''
+          newPlace ? setSearchPlace(newPlace.value) : ''
         }}
-        placeholder="Select city"
         isClearable
       />
     </SelectContainer>

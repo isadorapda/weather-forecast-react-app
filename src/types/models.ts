@@ -12,8 +12,8 @@ export interface Hourly {
 
 export interface Daily {
   time?: string[]
-  temperature_2m_max?: number[]
-  temperature_2m_min?: number[]
+  temperature_2m_max: number[]
+  temperature_2m_min: number[]
   precipitation_sum?: number[]
   sunrise?: string[]
   sunset?: string[]
